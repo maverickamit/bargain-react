@@ -1,7 +1,7 @@
 form {
     padding: 20px;
     margin: 0 auto;
-    max-width: 600px;
+    max-width: 800px;
 }
 
 form h1 {
@@ -23,7 +23,8 @@ form .row {
 form input[type="text"],
 form input[type="password"],
 form textarea {
-    width: 100%;
+    display: inline-block;
+    width: 80%;
     height: 40px;
     padding: 10px 10px 10px 90px;
     box-sizing: border-box;
@@ -34,11 +35,11 @@ form textarea {
     transition: all 0.3s cubic-bezier(1, 0.1, 0, 0.9);
 }
 
-form textarea {
-    height: auto;
-    min-height: 200px;
-    padding: 50px 10px 10px 10px;
+.text-help {
+    text-align: left;
+    padding: 10px;
 }
+
 
 form input[type="text"]+label,
 form input[type="password"]+label,
@@ -101,45 +102,6 @@ form input[type="radio"] {
     padding: 0;
 }
 
-form input[type="radio"]+label {
-    position: relative;
-    display: inline-block;
-    overflow: hidden;
-    text-indent: -9999px;
-    background: #ccc;
-    width: 30px;
-    height: 30px;
-    border-radius: 100%;
-    cursor: pointer;
-    -webkit-transition: all 0.3s cubic-bezier(1, 0.1, 0, 0.9);
-    transition: all 0.3s cubic-bezier(1, 0.1, 0, 0.9);
-}
-
-form input[type="radio"]+label:before {
-    content: '';
-    position: absolute;
-    display: block;
-    height: 10px;
-    width: 10px;
-    top: 50%;
-    left: 50%;
-    background: white;
-    border-radius: 100%;
-    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
-    -webkit-transition: all 0.3s cubic-bezier(1, 0.1, 0, 0.9) 0.1s;
-    transition: all 0.3s cubic-bezier(1, 0.1, 0, 0.9) 0.1s;
-    -webkit-transform: translateZ(0) translate(-50%, -50%) scale(0);
-    transform: translateZ(0) translate(-50%, -50%) scale(0);
-}
-
-form input[type="radio"]:checked+label {
-    background: #0288D1;
-}
-
-form input[type="radio"]:checked+label:before {
-    -webkit-transform: translateZ(0) translate(-50%, -50%) scale(1);
-    transform: translateZ(0) translate(-50%, -50%) scale(1);
-}
 
 form input[type="checkbox"]+label {
     position: relative;
@@ -199,6 +161,7 @@ form input[type="checkbox"]:checked+label:after {
 }
 
 form button {
+    display: inline-block;
     position: relative;
     overflow: hidden;
     height: 40px;
@@ -219,11 +182,12 @@ form button {
     -webkit-transform: translateZ(0) translateX(0);
     transform: translateZ(0) translateX(0);
     z-index: 2;
+    margin: 0 20px;
 }
 
 form button:before {
     content: '';
-    display: block;
+
     position: absolute;
     top: 0;
     right: 0;
