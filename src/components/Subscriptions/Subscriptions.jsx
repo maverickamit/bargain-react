@@ -5,13 +5,16 @@ import Toast from 'react-bootstrap/Toast';
 import Container from 'react-bootstrap/Container';
 import './Subscriptions.css';
 import { observer } from 'mobx-react';
-
+import Axios from 'axios';
+import serverUrl from '../urls';
 
 const Subscriptions = ({ productStore }) => {
-const deleteProduct = (bargainId) =>{} 
-	
+	const deleteProduct = (bargainId) => {
+		Axios.delete(`${serverUrl}/${bargainId}`);
+	};
+
 	if (!productStore.loading) {
-		return <></>
+		return '';
 	}
 	return (
 		<Container>
@@ -24,9 +27,8 @@ const deleteProduct = (bargainId) =>{}
 							onClose={() => deleteProduct(item.bargainId)}
 							key={i}
 						>
-							<Toast.Header >
-								<strong >
-                  {item.productTitle}</strong>
+							<Toast.Header>
+								<strong>{item.productTitle}</strong>
 							</Toast.Header>
 						</Toast>
 					);
