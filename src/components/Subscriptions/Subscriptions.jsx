@@ -8,8 +8,7 @@ import { observer } from 'mobx-react';
 
 
 const Subscriptions = ({ productStore }) => {
-	const [ show, toggleShow ] = useState(true);
- 
+const deleteProduct = (bargainId) =>{} 
 	
 	if (!productStore.loading) {
 		return <></>
@@ -17,16 +16,17 @@ const Subscriptions = ({ productStore }) => {
 	return (
 		<Container>
 			<Jumbotron>
-				{productStore.productData.map((li, i) => {
+				{productStore.productData.map((item, i) => {
 					return (
 						<Toast
-							className="  justify-content-center align-items-center container"
-							show={show}
-							onClose={() => toggleShow(false)}
+							className="  d-flex justify-content-center align-items-center container"
+							show={true}
+							onClose={() => deleteProduct(item.bargainId)}
 							key={i}
 						>
-							<Toast.Header style={{ 'text-align': 'center' }}>
-								<strong className="mr-auto">Product Title</strong>
+							<Toast.Header >
+								<strong >
+                  {item.productTitle}</strong>
 							</Toast.Header>
 						</Toast>
 					);
