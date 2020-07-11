@@ -23,7 +23,7 @@ function App({ productStore }) {
 					productStore.setProductData(response.data);
 					productStore.setLoading(true);
 				} else {
-					productStore.setLoading(false);
+					productStore.setLoading(true);
 				}
 				console.log(response.data.length);
 			})

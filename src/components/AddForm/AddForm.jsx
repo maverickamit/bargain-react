@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import './AddForm.css';
 import { observer } from 'mobx-react';
 
-const axios = require('axios').default;
+import Axios from 'axios';
 
 function AddForm({ productStore }) {
 	const urlInput = useRef(null);
@@ -12,10 +12,10 @@ function AddForm({ productStore }) {
 	const [ displaySuccess, setDisplaySuccess ] = useState(false);
 	const [ displayError, setDisplayError ] = useState(false);
 
-	const handleUrlSubmit = (event) => {
+	const handleUrlSubmit = async (event) => {
 		event.preventDefault();
 		console.log(urlInput.current.value);
-		axios({
+		await Axios({
 			method: 'post',
 			url: serverUrl,
 
@@ -37,6 +37,28 @@ function AddForm({ productStore }) {
 
 				console.log(error);
 			});
+		await Axios.get(serverUrl, {
+			params: {
+				email: productStore.email
+			}
+		})
+			.then(function(response) {
+				if (response.data.length != 0) {
+					productStore.setProductData(response.data);
+					productStore.setLoading(true);
+				}
+				console.log(response.data.length);
+			})
+			.catch(function(error) {
+				console.log(error);
+			})
+			.then(
+				setTimeout(() => {
+					console.log('This will run after 5 second!');
+					setDisplaySuccess(false);
+					setDisplayError(false);
+				}, 5000)
+			);
 	};
 
 	return (

@@ -1,7 +1,7 @@
 import { observable, action, decorate } from 'mobx';
 
 class ProductStore {
-	productData = [ 'hello' ];
+	productData = '';
 	email = '';
 	loading = false;
 

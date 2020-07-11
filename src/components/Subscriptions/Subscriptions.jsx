@@ -17,11 +17,12 @@ const Subscriptions = ({ productStore }) => {
 			}
 		})
 			.then(function(response) {
-				if (response.data.length != 0) {
+				if (response.data.length !== 0) {
 					productStore.setProductData(response.data);
 					productStore.setLoading(true);
 				} else {
-					productStore.setLoading(false);
+					productStore.setLoading(true);
+					productStore.setProductData('');
 				}
 				console.log(response.data.length);
 			})
@@ -29,9 +30,18 @@ const Subscriptions = ({ productStore }) => {
 				console.log(error);
 			});
 	};
+	console.log(productStore.productData == '');
 
 	if (!productStore.loading) {
 		return '';
+	}
+
+	if (productStore.productData == '') {
+		return (
+			<div class="alert alert-warning" role="alert">
+				You haven't added any products yet!
+			</div>
+		);
 	}
 	return (
 		<Container>
