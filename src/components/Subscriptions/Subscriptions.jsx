@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Subscriptions.css';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Toast from 'react-bootstrap/Toast';
@@ -9,8 +9,25 @@ import Axios from 'axios';
 import serverUrl from '../urls';
 
 const Subscriptions = ({ productStore }) => {
-	const deleteProduct = (bargainId) => {
-		Axios.delete(`${serverUrl}/${bargainId}`);
+	const deleteProduct = async (bargainId) => {
+		await Axios.delete(`${serverUrl}/${bargainId}`);
+		await Axios.get(serverUrl, {
+			params: {
+				email: productStore.email
+			}
+		})
+			.then(function(response) {
+				if (response.data.length != 0) {
+					productStore.setProductData(response.data);
+					productStore.setLoading(true);
+				} else {
+					productStore.setLoading(false);
+				}
+				console.log(response.data.length);
+			})
+			.catch(function(error) {
+				console.log(error);
+			});
 	};
 
 	if (!productStore.loading) {
