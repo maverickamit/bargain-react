@@ -1,7 +1,7 @@
 import React from 'react';
 import './AddForm.css';
 
-function AddForm() {
+function AddForm(email) {
 	return (
 		<form action="#">
 			<div class="row">
