@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import './AddForm.css';
 const axios = require('axios').default;
 
@@ -7,45 +7,65 @@ function AddForm(email) {
 
 	const serverUrl = 'https://x25iuvslok.execute-api.ap-south-1.amazonaws.com/dev/api/bargains';
 
+	const [ displaySuccess, setDisplaySuccess ] = useState(false);
+	const [ displayError, setDisplayError ] = useState(false);
+
 	const handleUrlSubmit = (event) => {
 		event.preventDefault();
 		console.log(urlInput.current.value);
 		axios({
 			method: 'post',
 			url: serverUrl,
+
 			data: {
 				email: email.email,
 				productUrl: urlInput.current.value
 			}
 		})
 			.then(function(response) {
-				console.log(response);
+				if (response.status === 200) {
+					urlInput.current.value = '';
+					setDisplaySuccess(true);
+				}
 			})
 			.catch(function(error) {
+				setDisplayError(true);
+
 				console.log(error);
 			});
 	};
-	return (
-		<form
-			onSubmit={(event) => {
-				handleUrlSubmit(event);
-			}}
-		>
-			<div class="row">
-				<h5 style={{ paddingRight: '20px' }}>Toogle Subscription Alert</h5>
-				<input type="checkbox" name="fancy-checkbox" id="fancy-checkbox" />
-				<label for="fancy-checkbox">Checkbox</label>
-			</div>
-			<h5 class="text-help">Add Product</h5>
 
-			<div class="row">
-				<input type="text" name="product-url" id="product-url" ref={urlInput} />
-				<label for="product-url">Url</label>
-				<button type="submit" tabindex="0">
-					Submit
-				</button>
+	return (
+		<div>
+			<div className=" d-flex justify-content-center align-items-center container">
+				<form
+					class="form-inline justify-center"
+					onSubmit={(event) => {
+						handleUrlSubmit(event);
+					}}
+				>
+					<label class="sr-only" for="inlineFormInputName2">
+						Name
+					</label>
+					<input
+						ref={urlInput}
+						type="text"
+						class="form-control mb-2 mr-sm-2"
+						id="inlineFormInputName2"
+						placeholder="Enter product url"
+					/>
+					<button type="submit" class="btn btn-primary mb-2">
+						Submit
+					</button>
+				</form>
 			</div>
-		</form>
+			<div class={displaySuccess ? 'alert alert-success' : 'alert-none'} role="alert">
+				{displaySuccess ? 'Success!' : ''}
+			</div>
+			<div class={displayError ? 'alert alert-danger' : 'alert-none'} role="alert">
+				{displayError ? 'Error!' : ''}
+			</div>
+		</div>
 	);
 }
 

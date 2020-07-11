@@ -16,21 +16,30 @@ function App() {
 
 	return (
 		<div className="App">
-			<h1> Price Tracker </h1>
-			<form
-				onSubmit={(event) => {
-					handleEmailSubmit(event);
-				}}
-			>
-				<h5 class="text-help"> Please enter your email here </h5>
-				<div class="row">
-					<input type="text" name="email" id="email" ref={textInput} />
-					<label for="email"> Email </label>
-					<button type="submit" tabindex="0">
+			<h1 style={{ padding: '20px' }}> Price Tracker </h1>
+			<div className=" d-flex justify-content-center align-items-center container">
+				<form
+					class="form-inline justify-center"
+					onSubmit={(event) => {
+						handleEmailSubmit(event);
+					}}
+					style={{ padding: '10px' }}
+				>
+					<label class="sr-only" for="inlineFormInputName2">
+						Name
+					</label>
+					<input
+						ref={textInput}
+						type="text"
+						class="form-control mb-2 mr-sm-2"
+						id="inlineFormInputName2"
+						placeholder="Enter email"
+					/>
+					<button type="submit" class="btn btn-primary mb-2">
 						Submit
 					</button>
-				</div>
-			</form>
+				</form>
+			</div>
 			<AddForm email={email} />
 			<Subscriptions email={email} />
 		</div>
