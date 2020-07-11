@@ -26,10 +26,12 @@ function AddForm(email) {
 				if (response.status === 200) {
 					urlInput.current.value = '';
 					setDisplaySuccess(true);
+					setDisplayError(false);
 				}
 			})
 			.catch(function(error) {
 				setDisplayError(true);
+				setDisplaySuccess(false);
 
 				console.log(error);
 			});
