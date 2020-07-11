@@ -3,25 +3,36 @@ import './Subscriptions.css';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Toast from 'react-bootstrap/Toast';
 import Container from 'react-bootstrap/Container';
-import Button from 'react-bootstrap/Button';
 import './Subscriptions.css';
+import { observer } from 'mobx-react';
 
-const Subscriptions = () => {
+
+const Subscriptions = ({ productStore }) => {
 	const [ show, toggleShow ] = useState(true);
+ 
+	
+	if (!productStore.loading) {
+		return <></>
+	}
 	return (
 		<Container>
 			<Jumbotron>
-				<Toast
-					className="  justify-content-center align-items-center container"
-					show={show}
-					onClose={() => toggleShow(false)}
-				>
-					<Toast.Header style={{ 'text-align': 'center' }}>
-						<strong className="mr-auto">Product Title</strong>
-					</Toast.Header>
-				</Toast>
+				{productStore.productData.map((li, i) => {
+					return (
+						<Toast
+							className="  justify-content-center align-items-center container"
+							show={show}
+							onClose={() => toggleShow(false)}
+							key={i}
+						>
+							<Toast.Header style={{ 'text-align': 'center' }}>
+								<strong className="mr-auto">Product Title</strong>
+							</Toast.Header>
+						</Toast>
+					);
+				})}
 			</Jumbotron>
 		</Container>
 	);
 };
-export default Subscriptions;
+export default observer(Subscriptions);

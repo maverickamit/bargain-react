@@ -1,8 +1,10 @@
 import React, { useRef, useState } from 'react';
 import './AddForm.css';
+import { observer } from 'mobx-react';
+
 const axios = require('axios').default;
 
-function AddForm(email) {
+function AddForm({ productStore }) {
 	const urlInput = useRef(null);
 
 	const serverUrl = 'https://x25iuvslok.execute-api.ap-south-1.amazonaws.com/dev/api/bargains';
@@ -18,7 +20,7 @@ function AddForm(email) {
 			url: serverUrl,
 
 			data: {
-				email: email.email,
+				email: productStore.email,
 				productUrl: urlInput.current.value
 			}
 		})
@@ -71,4 +73,4 @@ function AddForm(email) {
 	);
 }
 
-export default AddForm;
+export default observer(AddForm);

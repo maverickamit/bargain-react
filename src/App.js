@@ -3,15 +3,33 @@ import AddForm from './components/AddForm/AddForm';
 import Subscriptions from './components/Subscriptions/Subscriptions';
 import './App.css';
 import './components/AddForm/AddForm.css';
+import Axios from 'axios';
+import serverUrl from './components/urls';
+import { observer } from 'mobx-react';
 
-function App() {
-	const [ email, setEmail ] = useState('amit');
+function App({ productStore }) {
 	const textInput = useRef(null);
 
 	const handleEmailSubmit = (event) => {
 		event.preventDefault();
-		setEmail(textInput.current.value);
-		console.log(email);
+		productStore.setEmail(textInput.current.value);
+		Axios.get(serverUrl, {
+			params: {
+				email: textInput.current.value
+			}
+		})
+			.then(function(response) {
+				if (response.data.length != 0) {
+					productStore.setProductData(response.data);
+					productStore.setLoading(true);
+				} else {
+					productStore.setLoading(false);
+				}
+				console.log(response.data.length);
+			})
+			.catch(function(error) {
+				console.log(error);
+			});
 	};
 
 	return (
@@ -40,10 +58,10 @@ function App() {
 					</button>
 				</form>
 			</div>
-			<AddForm email={email} />
-			<Subscriptions email={email} />
+			<AddForm productStore={productStore} />
+			<Subscriptions productStore={productStore} />
 		</div>
 	);
 }
 
-export default App;
+export default observer(App);
