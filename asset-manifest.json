@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/react-product-alert/static/css/main.0a59e125.chunk.css",
-    "main.js": "/react-product-alert/static/js/main.0c836e4f.chunk.js",
-    "main.js.map": "/react-product-alert/static/js/main.0c836e4f.chunk.js.map",
+    "main.js": "/react-product-alert/static/js/main.ed85538a.chunk.js",
+    "main.js.map": "/react-product-alert/static/js/main.ed85538a.chunk.js.map",
     "runtime-main.js": "/react-product-alert/static/js/runtime-main.590ab53d.js",
     "runtime-main.js.map": "/react-product-alert/static/js/runtime-main.590ab53d.js.map",
-    "static/js/2.66448271.chunk.js": "/react-product-alert/static/js/2.66448271.chunk.js",
-    "static/js/2.66448271.chunk.js.map": "/react-product-alert/static/js/2.66448271.chunk.js.map",
+    "static/js/2.c24521a2.chunk.js": "/react-product-alert/static/js/2.c24521a2.chunk.js",
+    "static/js/2.c24521a2.chunk.js.map": "/react-product-alert/static/js/2.c24521a2.chunk.js.map",
     "index.html": "/react-product-alert/index.html",
-    "precache-manifest.92dc24844e98c5fc4e0115b6ffc667da.js": "/react-product-alert/precache-manifest.92dc24844e98c5fc4e0115b6ffc667da.js",
+    "precache-manifest.b4e598393dbd365fffaa9a90acc23e00.js": "/react-product-alert/precache-manifest.b4e598393dbd365fffaa9a90acc23e00.js",
     "service-worker.js": "/react-product-alert/service-worker.js",
     "static/css/main.0a59e125.chunk.css.map": "/react-product-alert/static/css/main.0a59e125.chunk.css.map",
-    "static/js/2.66448271.chunk.js.LICENSE.txt": "/react-product-alert/static/js/2.66448271.chunk.js.LICENSE.txt"
+    "static/js/2.c24521a2.chunk.js.LICENSE.txt": "/react-product-alert/static/js/2.c24521a2.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.590ab53d.js",
-    "static/js/2.66448271.chunk.js",
+    "static/js/2.c24521a2.chunk.js",
     "static/css/main.0a59e125.chunk.css",
-    "static/js/main.0c836e4f.chunk.js"
+    "static/js/main.ed85538a.chunk.js"
   ]
 }
