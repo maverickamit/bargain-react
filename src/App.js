@@ -34,8 +34,11 @@ function App({ productStore }) {
 
 	return (
 		<div className="App">
-			<h1 style={{ padding: '20px' }}> Price Tracker </h1>
-			<div className=" d-flex justify-content-center align-items-center container">
+			<h1 style={{ padding: '2px' }}> Bargain </h1>
+			<h3 style={{ padding: '2px' }}>
+				<small class="text-muted">Track prices and get alerts on your email</small>
+			</h3>
+			<div style={{ paddingTop: '20px' }} className="d-flex justify-content-center align-items-center container">
 				<form
 					class="form-inline justify-center"
 					onSubmit={(event) => {
