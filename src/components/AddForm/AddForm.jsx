@@ -1,8 +1,9 @@
 import React, { useRef, useState } from 'react';
 import './AddForm.css';
 import { observer } from 'mobx-react';
-
 import Axios from 'axios';
+import Spinner from 'react-bootstrap/Spinner';
+import Button from 'react-bootstrap/Button';
 
 function AddForm({ productStore }) {
 	const urlInput = useRef(null);
@@ -11,10 +12,11 @@ function AddForm({ productStore }) {
 
 	const [ displaySuccess, setDisplaySuccess ] = useState(false);
 	const [ displayError, setDisplayError ] = useState(false);
+	const [ loadingData, setLoadingData ] = useState(false);
 
 	const handleUrlSubmit = async (event) => {
 		event.preventDefault();
-		console.log(urlInput.current.value);
+		setLoadingData(true);
 		await Axios({
 			method: 'post',
 			url: serverUrl,
@@ -45,12 +47,15 @@ function AddForm({ productStore }) {
 			.then(function(response) {
 				if (response.data.length !== 0) {
 					productStore.setProductData(response.data);
-					productStore.setLoading(true);
+					productStore.setShowProduct(true);
 				}
 				console.log(response.data.length);
 			})
 			.catch(function(error) {
 				console.log(error);
+			})
+			.then(() => {
+				setLoadingData(false);
 			})
 			.then(
 				setTimeout(() => {
@@ -81,9 +86,16 @@ function AddForm({ productStore }) {
 						placeholder="Enter product url"
 						required
 					/>
-					<button type="submit" class="btn btn-primary mb-2">
-						Submit
-					</button>
+					{loadingData ? (
+						<Button style={{ margin: '0 10px 10px 10px' }} variant="primary" disabled>
+							<Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" />
+							Loading...
+						</Button>
+					) : (
+						<button type="submit" class="btn btn-primary mb-2">
+							Submit
+						</button>
+					)}
 				</form>
 			</div>
 

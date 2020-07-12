@@ -6,13 +6,17 @@ import './components/AddForm/AddForm.css';
 import Axios from 'axios';
 import serverUrl from './components/urls';
 import { observer } from 'mobx-react';
+import Spinner from 'react-bootstrap/Spinner';
+import Button from 'react-bootstrap/Button';
 
 function App({ productStore }) {
 	const textInput = useRef(null);
+	const [ loadingData, setLoadingData ] = useState(false);
 
 	const handleEmailSubmit = (event) => {
 		event.preventDefault();
 		productStore.setEmail(textInput.current.value);
+		setLoadingData(true);
 		Axios.get(serverUrl, {
 			params: {
 				email: textInput.current.value
@@ -21,16 +25,20 @@ function App({ productStore }) {
 			.then(function(response) {
 				if (response.data.length !== 0) {
 					productStore.setProductData(response.data);
-					productStore.setLoading(true);
+					productStore.setShowProduct(true);
 				} else {
 					productStore.setProductData('');
 
-					productStore.setLoading(true);
+					productStore.setShowProduct(true);
 				}
+
 				console.log(response.data.length);
 			})
 			.catch(function(error) {
 				console.log(error);
+			})
+			.then(() => {
+				setLoadingData(false);
 			});
 	};
 
@@ -59,9 +67,17 @@ function App({ productStore }) {
 						placeholder="Enter email"
 						required
 					/>
-					<button type="submit" class="btn btn-primary mb-2">
-						Submit
-					</button>
+
+					{loadingData ? (
+						<Button style={{ margin: '0 10px 10px 10px' }} variant="primary" disabled>
+							<Spinner as="span" animation="grow" size="sm" role="status" aria-hidden="true" />
+							Loading...
+						</Button>
+					) : (
+						<button type="submit" class="btn btn-primary mb-2">
+							Submit
+						</button>
+					)}
 				</form>
 			</div>
 			<AddForm productStore={productStore} />

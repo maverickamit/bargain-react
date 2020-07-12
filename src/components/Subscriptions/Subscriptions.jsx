@@ -19,9 +19,9 @@ const Subscriptions = ({ productStore }) => {
 			.then(function(response) {
 				if (response.data.length !== 0) {
 					productStore.setProductData(response.data);
-					productStore.setLoading(true);
+					productStore.setShowProduct(true);
 				} else {
-					productStore.setLoading(true);
+					productStore.setShowProduct(true);
 					productStore.setProductData('');
 				}
 				console.log(response.data.length);
@@ -32,7 +32,7 @@ const Subscriptions = ({ productStore }) => {
 	};
 	console.log(productStore.productData === '');
 
-	if (!productStore.loading) {
+	if (!productStore.showProduct) {
 		return '';
 	}
 

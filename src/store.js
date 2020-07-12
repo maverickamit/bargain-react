@@ -3,7 +3,9 @@ import { observable, action, decorate } from 'mobx';
 class ProductStore {
 	productData = '';
 	email = '';
-	loading = false;
+	showProduct = false;
+	fetchingItems = false;
+	fetchingProduct = false;
 
 	setProductData(productData) {
 		this.productData = productData;
@@ -12,16 +14,26 @@ class ProductStore {
 	setEmail(email) {
 		this.email = email;
 	}
-	setLoading(loading) {
-		this.loading = loading;
+	setShowProduct(showProduct) {
+		this.showProduct = showProduct;
+	}
+	setFetchingItems(fetchingItems) {
+		this.fetchingItems = fetchingItems;
+	}
+	setFetchingProduct(fetchingProduct) {
+		this.fetchingProduct = fetchingProduct;
 	}
 }
 
 ProductStore = decorate(ProductStore, {
 	productData: observable,
 	email: observable,
-	loading: observable,
-	setLoading: action,
+	showProduct: observable,
+	fetchingItems: observable,
+	fetchingProduct: observable,
+	setFetchingItems: action,
+	setFetchingProduct: action,
+	setShowProduct: action,
 	setProductData: action,
 	setEmail: action
 });
