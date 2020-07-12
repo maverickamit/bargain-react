@@ -43,7 +43,7 @@ function AddForm({ productStore }) {
 			}
 		})
 			.then(function(response) {
-				if (response.data.length != 0) {
+				if (response.data.length !== 0) {
 					productStore.setProductData(response.data);
 					productStore.setLoading(true);
 				}

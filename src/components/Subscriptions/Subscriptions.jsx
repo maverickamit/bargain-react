@@ -30,13 +30,13 @@ const Subscriptions = ({ productStore }) => {
 				console.log(error);
 			});
 	};
-	console.log(productStore.productData == '');
+	console.log(productStore.productData === '');
 
 	if (!productStore.loading) {
 		return '';
 	}
 
-	if (productStore.productData == '') {
+	if (productStore.productData === '') {
 		return (
 			<div class="alert alert-warning" role="alert">
 				You haven't added any products yet!
@@ -51,11 +51,15 @@ const Subscriptions = ({ productStore }) => {
 						<Toast
 							className="  d-flex justify-content-center align-items-center container"
 							show={true}
-							onClose={() => deleteProduct(item.bargainId)}
+							onClose={(e) => {
+								deleteProduct(item.bargainId);
+							}}
 							key={i}
 						>
 							<Toast.Header>
-								<strong>{item.productTitle}</strong>
+								<a href={item.productUrl} rel="noopener noreferrer" target="_blank">
+									<strong>{item.productTitle}</strong>
+								</a>
 							</Toast.Header>
 						</Toast>
 					);
