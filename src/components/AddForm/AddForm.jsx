@@ -75,7 +75,7 @@ function AddForm({ productStore }) {
 					</label>
 					<input
 						ref={urlInput}
-						type="text"
+						type="url"
 						class="form-control mb-2 mr-sm-2"
 						id="inlineFormInputName2"
 						placeholder="Enter product url"

@@ -51,7 +51,7 @@ function App({ productStore }) {
 					</label>
 					<input
 						ref={textInput}
-						type="text"
+						type="email"
 						class="form-control mb-2 mr-sm-2"
 						id="inlineFormInputName2"
 						placeholder="Enter email"
