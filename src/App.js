@@ -57,6 +57,7 @@ function App({ productStore }) {
 						class="form-control mb-2 mr-sm-2"
 						id="inlineFormInputName2"
 						placeholder="Enter email"
+						required
 					/>
 					<button type="submit" class="btn btn-primary mb-2">
 						Submit
