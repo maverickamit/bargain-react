@@ -85,11 +85,22 @@ function AddForm({ productStore }) {
 					</button>
 				</form>
 			</div>
-			<div class={displaySuccess ? 'alert alert-success' : 'alert-none'} role="alert">
-				{displaySuccess ? 'Product added successfully!' : ''}
+
+			<div
+				class={displaySuccess & (productStore.email !== '') ? 'alert alert-success' : 'alert-none'}
+				role="alert"
+			>
+				{displaySuccess & (productStore.email !== '') ? 'Product added successfully!' : ''}
 			</div>
-			<div class={displayError ? 'alert alert-danger' : 'alert-none'} role="alert">
-				{displayError ? 'Error! Only Amazon.in and Flipkart.com Urls are supported.' : ''}
+			<div class={displayError & (productStore.email !== '') ? 'alert alert-danger' : 'alert-none'} role="alert">
+				{displayError & (productStore.email !== '') ? (
+					'Error! Only Amazon.in and Flipkart.com Urls are supported.'
+				) : (
+					''
+				)}
+			</div>
+			<div class={displayError & (productStore.email === '') ? 'alert alert-danger' : 'alert-none'} role="alert">
+				{displayError & (productStore.email === '') ? 'Error! Please add email first.' : ''}
 			</div>
 		</div>
 	);
