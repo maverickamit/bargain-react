@@ -86,10 +86,10 @@ function AddForm({ productStore }) {
 				</form>
 			</div>
 			<div class={displaySuccess ? 'alert alert-success' : 'alert-none'} role="alert">
-				{displaySuccess ? 'Success!' : ''}
+				{displaySuccess ? 'Product added successfully!' : ''}
 			</div>
 			<div class={displayError ? 'alert alert-danger' : 'alert-none'} role="alert">
-				{displayError ? 'Error!' : ''}
+				{displayError ? 'Error! Only Amazon.in and Flipkart.com Urls are supported.' : ''}
 			</div>
 		</div>
 	);
