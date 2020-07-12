@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "62ad2d3e3d0a2c8dda7660fc8d07790c",
+    "revision": "d851730d39b328f191ea5b15d211e802",
     "url": "/bargain-react/index.html"
   },
   {
-    "revision": "cfd4fbed18bf09495d32",
+    "revision": "65aee41e8b11cbbe467b",
     "url": "/bargain-react/static/css/main.0a59e125.chunk.css"
   },
   {
-    "revision": "e688e73ed548cfc9efc9",
-    "url": "/bargain-react/static/js/2.915d4015.chunk.js"
+    "revision": "93f28282c948ca72e7a1",
+    "url": "/bargain-react/static/js/2.ad18897c.chunk.js"
   },
   {
     "revision": "232aae28f8ee03096b30a3e0fbca302d",
-    "url": "/bargain-react/static/js/2.915d4015.chunk.js.LICENSE.txt"
+    "url": "/bargain-react/static/js/2.ad18897c.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "cfd4fbed18bf09495d32",
-    "url": "/bargain-react/static/js/main.17e454e8.chunk.js"
+    "revision": "65aee41e8b11cbbe467b",
+    "url": "/bargain-react/static/js/main.0cf72cb3.chunk.js"
   },
   {
     "revision": "54d3b2fe073dec5556bc",
