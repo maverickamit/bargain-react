@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/bargain-react/static/css/main.0a59e125.chunk.css",
-    "main.js": "/bargain-react/static/js/main.0cf72cb3.chunk.js",
-    "main.js.map": "/bargain-react/static/js/main.0cf72cb3.chunk.js.map",
+    "main.css": "/bargain-react/static/css/main.3576a446.chunk.css",
+    "main.js": "/bargain-react/static/js/main.6523e526.chunk.js",
+    "main.js.map": "/bargain-react/static/js/main.6523e526.chunk.js.map",
     "runtime-main.js": "/bargain-react/static/js/runtime-main.0b5c68d1.js",
     "runtime-main.js.map": "/bargain-react/static/js/runtime-main.0b5c68d1.js.map",
     "static/js/2.ad18897c.chunk.js": "/bargain-react/static/js/2.ad18897c.chunk.js",
     "static/js/2.ad18897c.chunk.js.map": "/bargain-react/static/js/2.ad18897c.chunk.js.map",
     "index.html": "/bargain-react/index.html",
-    "precache-manifest.1ec2fa207efa00c01b6184585133dc85.js": "/bargain-react/precache-manifest.1ec2fa207efa00c01b6184585133dc85.js",
+    "precache-manifest.0a5985bf22f03d5dae9cba6a9da0bf75.js": "/bargain-react/precache-manifest.0a5985bf22f03d5dae9cba6a9da0bf75.js",
     "service-worker.js": "/bargain-react/service-worker.js",
-    "static/css/main.0a59e125.chunk.css.map": "/bargain-react/static/css/main.0a59e125.chunk.css.map",
+    "static/css/main.3576a446.chunk.css.map": "/bargain-react/static/css/main.3576a446.chunk.css.map",
     "static/js/2.ad18897c.chunk.js.LICENSE.txt": "/bargain-react/static/js/2.ad18897c.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.0b5c68d1.js",
     "static/js/2.ad18897c.chunk.js",
-    "static/css/main.0a59e125.chunk.css",
-    "static/js/main.0cf72cb3.chunk.js"
+    "static/css/main.3576a446.chunk.css",
+    "static/js/main.6523e526.chunk.js"
   ]
 }
