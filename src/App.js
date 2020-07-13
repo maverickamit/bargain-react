@@ -43,7 +43,7 @@ function App({ productStore }) {
 	};
 
 	return (
-		<div className="App">
+		<div className="App container">
 			<h1 style={{ padding: '2px' }}> Bargain </h1>
 			<h3 style={{ padding: '2px' }}>
 				<small class="text-muted">Track prices and get alerts on your email</small>
